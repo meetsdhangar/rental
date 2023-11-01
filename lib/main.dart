@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/forgotpass.dart';
+import 'package:rental/Screens/home.dart';
 import 'package:rental/Screens/resetpass.dart';
+import 'package:rental/Screens/search.dart';
 import 'package:rental/Screens/signin.dart';
 import 'package:rental/Screens/splash.dart';
+
 import 'package:rental/Screens/verification.dart';
 
 void main() {
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: splash(),
+      home: signin(),
     );
   }
 }
