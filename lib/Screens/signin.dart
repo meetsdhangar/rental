@@ -107,7 +107,7 @@ class signin extends StatelessWidget {
                                 labelColor: Colors.white,
                                 tabs: [
                                   Container(child: Text("USER")),
-                                  Text("PARTNER")
+                                  Text("PARTNER"),
                                 ]),
                           ),
                           Expanded(
