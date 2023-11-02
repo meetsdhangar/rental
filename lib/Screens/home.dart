@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental/Screens/clothmen.dart';
 
 class home extends StatelessWidget {
   const home({super.key});
@@ -32,6 +33,7 @@ class home extends StatelessWidget {
         padding: const EdgeInsets.only(top: 31, left: 30),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 width: 315,
@@ -76,117 +78,241 @@ class home extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 114,
-                        width: 89,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFDF453E),
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0x14000000),
-                                blurRadius: 4,
-                                offset: Offset(0, 2),
-                                spreadRadius: 0,
-                              )
-                            ]),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 13, left: 20, right: 24),
-                              child: Container(
-                                child: Image.asset(
-                                  "assets/images/cloth.png",
-                                  fit: BoxFit.fill,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => clothmen(),
+                          ));
+                        },
+                        child: Container(
+                          height: 114,
+                          width: 89,
+                          decoration: BoxDecoration(
+                              color: Color(0xFFDF453E),
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0x14000000),
+                                  blurRadius: 4,
+                                  offset: Offset(0, 2),
+                                  spreadRadius: 0,
+                                )
+                              ]),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 13, left: 20, right: 24),
+                                child: Container(
+                                  child: Image.asset(
+                                    "assets/images/cloth.png",
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Cloth",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
+                              SizedBox(
+                                height: 10,
                               ),
-                            )
-                          ],
+                              Text(
+                                "Cloth",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     );
                   },
                 ),
               ),
+              SizedBox(
+                height: 26,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Trending Products",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 140,
+                  ),
+                  Text(
+                    "View All",
+                    style: TextStyle(
+                      color: Color(0xFFDF453E),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
               Container(
-                width: 142,
-                height: 205,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x14000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 2),
-                        spreadRadius: 0,
-                      )
-                    ]),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 13, left: 20, right: 24),
-                      child: Container(
-                        width: 110,
-                        height: 102.02,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF8F8F8),
-                            borderRadius: BorderRadius.circular(3)),
-                        child: Container(
-                          width: 72,
-                          height: 97.21,
-                          child: Image.asset(
-                            "assets/images/girl.png",
-                            fit: BoxFit.fill,
+                height: MediaQuery.of(context).size.height,
+                child: ListView.builder(
+                  itemCount: 4,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 142,
+                            height: 205,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x14000000),
+                                    blurRadius: 4,
+                                    offset: Offset(0, 2),
+                                    spreadRadius: 0,
+                                  )
+                                ]),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 13, left: 20, right: 24),
+                                  child: Container(
+                                    width: 110,
+                                    height: 102.02,
+                                    decoration: BoxDecoration(
+                                        color: Color(0xFFF8F8F8),
+                                        borderRadius: BorderRadius.circular(3)),
+                                    child: Container(
+                                      width: 72,
+                                      height: 97.21,
+                                      child: Image.asset(
+                                        "assets/images/girl.png",
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset("assets/images/dollar.png"),
+                                    SizedBox(
+                                      width: 7.7,
+                                    ),
+                                    Text(
+                                      "2000 ",
+                                      style: TextStyle(
+                                        color: Color(0xFFDF453E),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 3.85,
+                                ),
+                                Text(
+                                  "Lehnga Choli",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset("assets/images/dollar.png"),
-                        SizedBox(
-                          width: 7.7,
-                        ),
-                        Text(
-                          "2000 ",
-                          style: TextStyle(
-                            color: Color(0xFFDF453E),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
+                          SizedBox(
+                            width: 50,
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 3.85,
-                    ),
-                    Text(
-                      "Lehnga Choli",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
+                          Container(
+                            width: 142,
+                            height: 205,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x14000000),
+                                    blurRadius: 4,
+                                    offset: Offset(0, 2),
+                                    spreadRadius: 0,
+                                  )
+                                ]),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 13, left: 20, right: 24),
+                                  child: Container(
+                                    width: 110,
+                                    height: 102.02,
+                                    decoration: BoxDecoration(
+                                        color: Color(0xFFF8F8F8),
+                                        borderRadius: BorderRadius.circular(3)),
+                                    child: Container(
+                                      width: 72,
+                                      height: 97.21,
+                                      child: Image.asset(
+                                        "assets/images/sewing.png",
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset("assets/images/dollar.png"),
+                                    SizedBox(
+                                      width: 7.7,
+                                    ),
+                                    Text(
+                                      "340 ",
+                                      style: TextStyle(
+                                        color: Color(0xFFDF453E),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 3.85,
+                                ),
+                                Text(
+                                  "Lehnga Choli",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
               ),
             ],

@@ -3,8 +3,8 @@ import 'package:rental/Screens/commonwidget.dart';
 import 'package:rental/Screens/forgotpass.dart';
 import 'package:rental/Screens/signin.dart';
 
-class signup extends StatelessWidget {
-  const signup({super.key});
+class checkout extends StatelessWidget {
+  const checkout({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class signup extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 115),
                         child: Text(
-                          "Sign Up",
+                          "Address",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -80,7 +80,7 @@ class signup extends StatelessWidget {
                             height: 39,
                           ),
                           Text(
-                            "Registration",
+                            "Address Details",
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 22,
@@ -113,71 +113,27 @@ class signup extends StatelessWidget {
                           SizedBox(
                             height: 16,
                           ),
-                          commonContainer("Password"),
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 17, top: 13),
+                              child: Text(
+                                "Addresh",
+                                style: TextStyle(
+                                  color: Color(0xFF787474),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            width: 315,
+                            height: 104,
+                            decoration: BoxDecoration(
+                              color: Color(0x30CCCCCC),
+                              borderRadius: BorderRadius.circular(13),
+                            ),
+                          ),
                           SizedBox(height: 33),
-                          button("Sign In", signin(), context),
-                          SizedBox(
-                            height: 89,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => forgotpass(),
-                              ));
-                            },
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 50),
-                                  child: Text(
-                                    "Already have an account ? ",
-                                    style: TextStyle(
-                                        color: Color(0xFFA6A8AA),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ),
-                                Text(
-                                  "Sign-Up",
-                                  style: TextStyle(
-                                    color: Color(0xFFDF453E),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 16,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 35),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Center(
-                                  child: Text(
-                                    "Buying for work? ",
-                                    style: TextStyle(
-                                      color: Color(0xFFA6A8AA),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 0.28,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  "Create a free business account",
-                                  style: TextStyle(
-                                    color: Color(0xFFDF453E),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
+                          button("Submit", signin(), context),
                         ],
                       ),
                     ),

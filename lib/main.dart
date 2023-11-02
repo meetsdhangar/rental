@@ -1,12 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:rental/Screens/forgotpass.dart';
+import 'package:rental/Screens/allcategory.dart';
+import 'package:rental/Screens/checkout.dart';
 import 'package:rental/Screens/home.dart';
-import 'package:rental/Screens/resetpass.dart';
-import 'package:rental/Screens/search.dart';
+import 'package:rental/Screens/navifaton.dart';
 import 'package:rental/Screens/signin.dart';
-import 'package:rental/Screens/splash.dart';
-
-import 'package:rental/Screens/verification.dart';
+import 'package:rental/Screens/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: signin(),
+      home: navigation(),
     );
   }
 }

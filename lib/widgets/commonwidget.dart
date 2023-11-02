@@ -20,7 +20,7 @@ loginView(context) {
       button("Sign In", signup(), context),
       SizedBox(height: 13),
       Padding(
-        padding: const EdgeInsets.only(left: 95),
+        padding: const EdgeInsets.only(left: 10),
         child: InkWell(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
