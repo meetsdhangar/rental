@@ -61,6 +61,7 @@ class search extends StatelessWidget {
             SizedBox(
               height: 24,
             ),
+
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -69,7 +70,7 @@ class search extends StatelessWidget {
                   height: 50,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/kids.png"),
+                      image: AssetImage("assets/images/kid2.png"),
                       fit: BoxFit.contain,
                     ),
                   ),

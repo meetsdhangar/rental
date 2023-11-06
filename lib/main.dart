@@ -1,11 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:rental/Screens/allcategory.dart';
-import 'package:rental/Screens/checkout.dart';
-import 'package:rental/Screens/home.dart';
+import 'package:rental/Screens/clothmen.dart';
 import 'package:rental/Screens/navifaton.dart';
 import 'package:rental/Screens/signin.dart';
 import 'package:rental/Screens/signup.dart';
+import 'package:rental/route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +23,15 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: navigation(),
+      //home: navigation(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => navigation(),
+        myRoute.navigatonbarRoute: (context) => navigation(),
+        myRoute.signinRoute: (context) => signin(),
+        myRoute.signupRoute: (context) => signup(),
+        myRoute.clothmenRoute: (context) => clothmen(),
+      },
     );
   }
 }
