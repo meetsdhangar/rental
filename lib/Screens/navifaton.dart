@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/allcategory.dart';
+import 'package:rental/Screens/bagitems.dart';
 import 'package:rental/Screens/changepassword.dart';
 import 'package:rental/Screens/checkout.dart';
 import 'package:rental/Screens/emptybag.dart';
@@ -18,7 +19,7 @@ class navigation extends StatefulWidget {
 }
 
 int myindex = 0;
-List screen = [home(), search(), allcategory(), emptybag(), changepass()];
+List screen = [home(), search(), allcategory(), emptybag(), bagitem()];
 
 class _navigationState extends State<navigation> {
   @override
