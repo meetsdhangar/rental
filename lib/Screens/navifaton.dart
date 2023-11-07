@@ -7,6 +7,7 @@ import 'package:rental/Screens/checkout.dart';
 import 'package:rental/Screens/emptybag.dart';
 import 'package:rental/Screens/forgotpass.dart';
 import 'package:rental/Screens/home.dart';
+import 'package:rental/Screens/imagepicker.dart';
 
 import 'package:rental/Screens/search.dart';
 import 'package:rental/Screens/signin.dart';
@@ -19,7 +20,13 @@ class navigation extends StatefulWidget {
 }
 
 int myindex = 0;
-List screen = [home(), search(), allcategory(), emptybag(), bagitem()];
+List screen = [
+  Imagepickerdemo(),
+  search(),
+  allcategory(),
+  emptybag(),
+  checkout()
+];
 
 class _navigationState extends State<navigation> {
   @override

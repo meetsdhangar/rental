@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/clothmen.dart';
+import 'package:rental/Screens/imagepicker.dart';
 import 'package:rental/widgets/homepagewidgets.dart';
 
 class home extends StatelessWidget {
@@ -26,16 +27,23 @@ class home extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 31),
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: ShapeDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/prof.png"),
-                  fit: BoxFit.fill,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Imagepickerdemo(),
+                ));
+              },
+              child: Container(
+                width: 40,
+                height: 40,
+                decoration: ShapeDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/prof.png"),
+                    fit: BoxFit.fill,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
             ),

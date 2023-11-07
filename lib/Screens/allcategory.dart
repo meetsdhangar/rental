@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental/widgets/allcategorycontainer.dart';
 import 'package:rental/widgets/clothcontainer.dart';
 
 class allcategory extends StatelessWidget {
@@ -29,126 +30,9 @@ class allcategory extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Container(
-                  height: 114,
-                  width: 89,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x14000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                          spreadRadius: 0,
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 13, left: 20, right: 24),
-                        child: Container(
-                          child: Image.asset(
-                            "assets/images/cloth.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Cloth",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 114,
-                  width: 89,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x14000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                          spreadRadius: 0,
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 13, left: 20, right: 24),
-                        child: Container(
-                          child: Image.asset(
-                            "assets/images/laptop.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Electronics",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 114,
-                  width: 89,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x14000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                          spreadRadius: 0,
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 13, left: 20, right: 24),
-                        child: Container(
-                          child: Image.asset(
-                            "assets/images/events.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Events",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                allcatcontainer("cloth", "assets/images/cloth.png"),
+                allcatcontainer("Electronics", "assets/images/laptop.png"),
+                allcatcontainer("Events", "assets/images/events.png")
               ],
             ),
           ),
@@ -157,126 +41,15 @@ class allcategory extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Container(
-                  height: 114,
-                  width: 89,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x14000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                          spreadRadius: 0,
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 13, left: 20, right: 24),
-                        child: Container(
-                          child: Image.asset(
-                            "assets/images/applience.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        " Appliances ",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
+                allcatcontainer("Appliances", "assets/images/applience.png"),
+                allcatcontainer(
+                  "Vehicle",
+                  "assets/images/vehicle.png",
                 ),
-                Container(
-                  height: 114,
-                  width: 89,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x14000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                          spreadRadius: 0,
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 13, left: 20, right: 24),
-                        child: Container(
-                          child: Image.asset(
-                            "assets/images/vehicle.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Vehicle",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 114,
-                  width: 89,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x14000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                          spreadRadius: 0,
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 13, left: 20, right: 24),
-                        child: Container(
-                          child: Image.asset(
-                            "assets/images/construction.png",
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Construction",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                allcatcontainer(
+                  "Construction",
+                  "assets/images/construction.png",
+                )
               ],
             ),
           ),

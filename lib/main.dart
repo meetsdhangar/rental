@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rental/Screens/clothmen.dart';
+import 'package:rental/Screens/imagepicker.dart';
 import 'package:rental/Screens/navifaton.dart';
 import 'package:rental/Screens/signin.dart';
 import 'package:rental/Screens/signup.dart';
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      //home: navigation(),
+      // home: Imagepickerdemo(),
       initialRoute: "/",
       routes: {
         "/": (context) => navigation(),

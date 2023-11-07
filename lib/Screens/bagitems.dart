@@ -1,22 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class bagitem extends StatelessWidget {
+class bagitem extends StatefulWidget {
   const bagitem({super.key});
 
+  @override
+  State<bagitem> createState() => _bagitemState();
+}
+
+bool selected = false;
+bool openBottomsheet = false;
+
+class _bagitemState extends State<bagitem> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       backgroundColor: Color(0xFFF8F8F8),
       appBar: AppBar(
-        title: Text(
-          "bag items",
-          style: TextStyle(
-            color: Color(0xFF1B3E41),
-            fontSize: 19,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+        title: Text("bag items",
+            style: GoogleFonts.aboreto(
+              textStyle: TextStyle(
+                color: Color(0xFF1B3E41),
+                fontSize: 19,
+                fontWeight: FontWeight.w700,
+              ),
+            )),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10),
@@ -53,7 +62,8 @@ class bagitem extends StatelessWidget {
                         height: 91,
                       ),
                       Column(
-                        //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Grown",
@@ -131,21 +141,67 @@ class bagitem extends StatelessWidget {
               ),
             ),
             Positioned(
-              left: 19,
-              top: 15,
-              child: Container(
-                width: 18,
-                height: 18,
-                child: Icon(
-                  Icons.done,
-                  size: 18,
-                  color: Colors.white,
-                ),
-                decoration: BoxDecoration(
-                    color: Color(0xFFDF453E),
-                    borderRadius: BorderRadius.circular(5)),
-              ),
-            )
+                left: 19,
+                top: 15,
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      selected = !selected;
+                      openBottomsheet = !openBottomsheet;
+                    });
+
+                    if (openBottomsheet == true) {
+                      showModalBottomSheet(
+                        isDismissible: false,
+                        context: context,
+                        builder: (context) {
+                          return Container(
+                            height: 80,
+                            width: MediaQuery.of(context).size.width,
+                            child: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    Navigator.pop(context);
+                                    selected = false;
+                                  });
+                                },
+                                child: Icon(Icons.close)),
+                          );
+                        },
+                      );
+                    } else {
+                      setState(() {
+                        selected = !selected;
+                      });
+                    }
+                  },
+                  child: selected
+                      ? Container(
+                          width: 18,
+                          height: 18,
+                          child: Icon(
+                            Icons.done,
+                            size: 18,
+                            color: Colors.white,
+                          ),
+                          decoration: BoxDecoration(
+                              color: Color(0xFFDF453E),
+                              borderRadius: BorderRadius.circular(5)),
+                        )
+                      : Container(
+                          width: 18,
+                          height: 18,
+                          // child: Icon(
+                          //   Icons.done,
+                          //   size: 18,
+                          //   color: Colors.white,
+                          // ),
+                          decoration: BoxDecoration(
+                              // color: Color(0xFFDF453E),
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(5)),
+                        ),
+                ))
           ],
         ),
       ),

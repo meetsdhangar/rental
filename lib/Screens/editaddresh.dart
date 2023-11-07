@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/addresh.dart';
 import 'package:rental/Screens/commonwidget.dart';
-import 'package:rental/Screens/forgotpass.dart';
+import 'package:rental/Screens/finalorder.dart';
 import 'package:rental/Screens/signin.dart';
 
-class checkout extends StatelessWidget {
-  const checkout({super.key});
+class editaddresh extends StatelessWidget {
+  const editaddresh({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class checkout extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 115),
                         child: Text(
-                          "Address",
+                          "Edit",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -102,28 +102,49 @@ class checkout extends StatelessWidget {
                           SizedBox(
                             height: 33,
                           ),
-                          commonContainer("Name"),
+                          commonContainer("Patel Sandhya"),
                           SizedBox(
                             height: 16,
                           ),
-                          commonContainer("Phone Number"),
+                          commonContainer("1234567890"),
                           SizedBox(
                             height: 16,
                           ),
-                          commonContainer("Email"),
+                          commonContainer("Sandhya123@Gmail.com"),
                           SizedBox(
                             height: 16,
                           ),
                           Container(
                             child: Padding(
                               padding: const EdgeInsets.only(left: 17, top: 13),
-                              child: Text(
-                                "Addresh",
-                                style: TextStyle(
-                                  color: Color(0xFF787474),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Porvasan ( Hanuman faliya )",
+                                    style: TextStyle(
+                                      color: Color(0xFF787474),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Vasan",
+                                    style: TextStyle(
+                                      color: Color(0xFF787474),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Valsad, Gujarat 396375",
+                                    style: TextStyle(
+                                      color: Color(0xFF787474),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             width: 315,
@@ -133,8 +154,51 @@ class checkout extends StatelessWidget {
                               borderRadius: BorderRadius.circular(13),
                             ),
                           ),
-                          SizedBox(height: 33),
-                          button("Submit", Addresh(), context),
+                          SizedBox(
+                            height: 17,
+                          ),
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 17, top: 13),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Porvasan ( Hanuman faliya )",
+                                    style: TextStyle(
+                                      color: Color(0xFF787474),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Vasan",
+                                    style: TextStyle(
+                                      color: Color(0xFF787474),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Valsad, Gujarat 396375",
+                                    style: TextStyle(
+                                      color: Color(0xFF787474),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            width: 315,
+                            height: 104,
+                            decoration: BoxDecoration(
+                              color: Color(0x30CCCCCC),
+                              borderRadius: BorderRadius.circular(13),
+                            ),
+                          ),
+                          SizedBox(height: 15),
+                          button("Save Address", finalorder(), context),
                         ],
                       ),
                     ),
