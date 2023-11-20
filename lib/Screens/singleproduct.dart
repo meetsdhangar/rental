@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental/Screens/bottomsheet.dart';
 import 'package:rental/widgets/singleprow.dart';
 
 class singleproduct extends StatelessWidget {
@@ -188,6 +189,71 @@ class singleproduct extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ),
+        bottomNavigationBar: Container(
+          color: Color(0xFFF8F8F8),
+          height: 64,
+          width: MediaQuery.of(context).size.width,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: Container(
+              decoration: BoxDecoration(
+                //color: Colors.red,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 182,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFDF453E),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(40),
+                          bottomRight: Radius.circular(40)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Call Now",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                      child: InkWell(
+                    onTap: () {
+                      showModalBottomSheet(
+                          backgroundColor: Colors.transparent,
+                          context: context,
+                          builder: (builder) => bottomsheet(context));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xBFDF453E),
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(40),
+                          )),
+                      child: Center(
+                        child: Text(
+                          "Book Now",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ))
+                ],
+              ),
+            ),
           ),
         ),
       ),

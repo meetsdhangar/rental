@@ -26,21 +26,7 @@ class signin extends StatelessWidget {
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 30),
-                          child: Container(
-                            width: 27,
-                            height: 27,
-                            decoration: BoxDecoration(
-                                color: Color(0xFFDF453E),
-                                borderRadius: BorderRadius.circular(6)),
-                            child: Icon(
-                              Icons.chevron_left,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 115),
+                          padding: const EdgeInsets.only(left: 150),
                           child: Text(
                             "Sign In",
                             style: TextStyle(

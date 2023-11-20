@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/commonwidget.dart';
+import 'package:rental/Screens/signin.dart';
 import 'package:rental/Screens/signup.dart';
 import 'package:rental/Screens/verification.dart';
 
@@ -26,7 +27,7 @@ class forgotpass extends StatelessWidget {
                   child: InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => signup(),
+                        builder: (context) => signin(),
                       ));
                     },
                     child: Container(

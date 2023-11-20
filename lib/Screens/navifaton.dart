@@ -20,13 +20,7 @@ class navigation extends StatefulWidget {
 }
 
 int myindex = 0;
-List screen = [
-  Imagepickerdemo(),
-  search(),
-  allcategory(),
-  emptybag(),
-  checkout()
-];
+List screen = [home(), search(), allcategory(), emptybag(), checkout()];
 
 class _navigationState extends State<navigation> {
   @override

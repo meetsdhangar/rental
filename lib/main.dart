@@ -1,14 +1,19 @@
-import 'package:flutter/foundation.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:rental/Screens/clothmen.dart';
-import 'package:rental/Screens/imagepicker.dart';
+
 import 'package:rental/Screens/navifaton.dart';
 import 'package:rental/Screens/signin.dart';
 import 'package:rental/Screens/signup.dart';
+import 'package:rental/firebase_options.dart';
 import 'package:rental/route.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -28,7 +33,7 @@ class MyApp extends StatelessWidget {
       // home: Imagepickerdemo(),
       initialRoute: "/",
       routes: {
-        "/": (context) => navigation(),
+        "/": (context) => signin(),
         myRoute.navigatonbarRoute: (context) => navigation(),
         myRoute.signinRoute: (context) => signin(),
         myRoute.signupRoute: (context) => signup(),

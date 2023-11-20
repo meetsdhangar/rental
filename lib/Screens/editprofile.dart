@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:rental/Screens/commonwidget.dart';
-import 'package:rental/Screens/home.dart';
+
 import 'package:rental/Screens/oredrhistory.dart';
 import 'package:rental/Screens/signin.dart';
 
@@ -11,7 +14,20 @@ class editprofile extends StatefulWidget {
   State<editprofile> createState() => _editprofileState();
 }
 
+File? img;
+
 class _editprofileState extends State<editprofile> {
+  selectimage() async {
+    final myimage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    setState(() {
+      if (myimage == null) {
+        return;
+      } else {
+        img = File(myimage.path);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,8 +59,9 @@ class _editprofileState extends State<editprofile> {
                               width: 27,
                               height: 27,
                               decoration: BoxDecoration(
-                                  color: Color(0xFFDF453E),
-                                  borderRadius: BorderRadius.circular(6)),
+                                color: Color(0xFFDF453E),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
                               child: Icon(
                                 Icons.chevron_left,
                                 color: Colors.white,
@@ -83,34 +100,51 @@ class _editprofileState extends State<editprofile> {
                           Stack(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 34),
-                                child: Container(
-                                  width: 130,
-                                  height: 130,
-                                  decoration: ShapeDecoration(
-                                    image: DecorationImage(
-                                      image:
-                                          AssetImage("assets/images/prof1.png"),
-                                      fit: BoxFit.fill,
-                                    ),
-                                    shape: OvalBorder(),
-                                  ),
-                                ),
-                              ),
+                                  padding: const EdgeInsets.only(top: 34),
+                                  child: img == null
+                                      ? Container(
+                                          width: 130,
+                                          height: 130,
+                                          decoration: ShapeDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  "assets/images/prof1.png"),
+                                              fit: BoxFit.fill,
+                                            ),
+                                            shape: OvalBorder(),
+                                          ),
+                                        )
+                                      : Container(
+                                          width: 130,
+                                          height: 130,
+                                          decoration: ShapeDecoration(
+                                            image: DecorationImage(
+                                              image: FileImage(img!),
+                                              fit: BoxFit.fill,
+                                            ),
+                                            shape: OvalBorder(),
+                                          ),
+                                        )),
                               Positioned(
                                 top: 130,
                                 left: 90,
-                                child: Container(
-                                  width: 28,
-                                  height: 28,
-                                  child: Icon(
-                                    Icons.edit,
-                                    size: 18,
-                                    color: Colors.white,
+                                child: InkWell(
+                                  onTap: () {
+                                    selectimage();
+                                  },
+                                  child: Container(
+                                    width: 28,
+                                    height: 28,
+                                    child: Icon(
+                                      Icons.edit,
+                                      size: 18,
+                                      color: Colors.white,
+                                    ),
+                                    decoration: BoxDecoration(
+                                        color: Color(0xFF1B3E41),
+                                        borderRadius:
+                                            BorderRadius.circular(50)),
                                   ),
-                                  decoration: BoxDecoration(
-                                      color: Color(0xFF1B3E41),
-                                      borderRadius: BorderRadius.circular(50)),
                                 ),
                               ),
                             ],

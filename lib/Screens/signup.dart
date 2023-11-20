@@ -119,34 +119,34 @@ class signup extends StatelessWidget {
                           SizedBox(
                             height: 89,
                           ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => forgotpass(),
-                              ));
-                            },
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 50),
-                                  child: Text(
-                                    "Already have an account ? ",
-                                    style: TextStyle(
-                                        color: Color(0xFFA6A8AA),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400),
-                                  ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 50),
+                                child: Text(
+                                  "Already have an account ? ",
+                                  style: TextStyle(
+                                      color: Color(0xFFA6A8AA),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400),
                                 ),
-                                Text(
-                                  "Sign-Up",
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => signin(),
+                                  ));
+                                },
+                                child: Text(
+                                  "Sign-In",
                                   style: TextStyle(
                                     color: Color(0xFFDF453E),
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                   ),
-                                )
-                              ],
-                            ),
+                                ),
+                              )
+                            ],
                           ),
                           SizedBox(
                             height: 16,

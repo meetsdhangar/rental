@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/clothmen.dart';
 import 'package:rental/Screens/imagepicker.dart';
+import 'package:rental/Screens/singleproduct.dart';
 import 'package:rental/widgets/homepagewidgets.dart';
 
 class home extends StatelessWidget {
@@ -148,18 +149,27 @@ class home extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       top: 13, left: 20, right: 24),
-                                  child: Container(
-                                    width: 110,
-                                    height: 102.02,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFFF8F8F8),
-                                        borderRadius: BorderRadius.circular(3)),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(
+                                        builder: (context) => singleproduct(),
+                                      ));
+                                    },
                                     child: Container(
-                                      width: 72,
-                                      height: 97.21,
-                                      child: Image.asset(
-                                        "assets/images/girl.png",
-                                        fit: BoxFit.fill,
+                                      width: 110,
+                                      height: 102.02,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFFF8F8F8),
+                                          borderRadius:
+                                              BorderRadius.circular(3)),
+                                      child: Container(
+                                        width: 72,
+                                        height: 97.21,
+                                        child: Image.asset(
+                                          "assets/images/girl.png",
+                                          fit: BoxFit.fill,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -260,7 +270,7 @@ class home extends StatelessWidget {
                                   height: 3.85,
                                 ),
                                 Text(
-                                  "Lehnga Choli",
+                                  "Sewing Machines",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 13,

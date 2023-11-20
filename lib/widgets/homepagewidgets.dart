@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rental/route.dart';
 
-import '../Screens/clothmen.dart';
+
 
 horizontalListView(context) {
   return Container(

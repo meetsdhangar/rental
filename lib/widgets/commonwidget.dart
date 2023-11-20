@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental/Screens/navifaton.dart';
 import 'package:rental/Screens/signup.dart';
 
 import '../Screens/commonwidget.dart';
@@ -17,7 +18,9 @@ loginView(context) {
       ),
       commonContainer("Password"),
       SizedBox(height: 34),
-      button("Sign In", signup(), context),
+
+      
+      button("Sign In", navigation(), context),
       SizedBox(height: 13),
       Padding(
         padding: const EdgeInsets.only(left: 10),
@@ -53,7 +56,7 @@ loginView(context) {
           InkWell(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => home(),
+                builder: (context) => navigation(),
               ));
             },
             child: Container(
@@ -77,21 +80,28 @@ loginView(context) {
           SizedBox(
             width: 30,
           ),
-          Container(
-            width: 70,
-            height: 45,
-            child: Center(
-              child: Text(
-                "f",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 30),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => navigation(),
+              ));
+            },
+            child: Container(
+              width: 70,
+              height: 45,
+              child: Center(
+                child: Text(
+                  "f",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30),
+                ),
               ),
-            ),
-            decoration: BoxDecoration(
-              color: Color(0xFF3A58BA),
-              borderRadius: BorderRadius.circular(10),
+              decoration: BoxDecoration(
+                color: Color(0xFF3A58BA),
+                borderRadius: BorderRadius.circular(10),
+              ),
             ),
           ),
         ],
@@ -109,12 +119,19 @@ loginView(context) {
                 fontSize: 14,
                 fontWeight: FontWeight.w400),
           ),
-          Text(
-            "Sign-Up",
-            style: TextStyle(
-              color: Color(0xFFDF453E),
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => signup(),
+              ));
+            },
+            child: Text(
+              "Sign-Up",
+              style: TextStyle(
+                color: Color(0xFFDF453E),
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           )
         ],

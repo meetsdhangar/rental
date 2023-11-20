@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/commonwidget.dart';
 import 'package:rental/Screens/signin.dart';
+import 'package:rental/Screens/verification.dart';
 
 class resetpass extends StatelessWidget {
   const resetpass({super.key});
@@ -23,15 +24,22 @@ class resetpass extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 30),
-                    child: Container(
-                      width: 27,
-                      height: 27,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFDF453E),
-                          borderRadius: BorderRadius.circular(6)),
-                      child: Icon(
-                        Icons.chevron_left,
-                        color: Colors.white,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => verification(),
+                        ));
+                      },
+                      child: Container(
+                        width: 27,
+                        height: 27,
+                        decoration: BoxDecoration(
+                            color: Color(0xFFDF453E),
+                            borderRadius: BorderRadius.circular(6)),
+                        child: Icon(
+                          Icons.chevron_left,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
