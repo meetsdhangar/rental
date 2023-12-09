@@ -40,13 +40,13 @@ class _navigationState extends State<navigation> {
           items: [
             Image.asset(
               "assets/images/home1.png",
-              height: 20,
-              width: 20,
+              height: 25,
+              width: 25,
             ),
             Image.asset(
               "assets/images/search1.png",
-              height: 20,
-              width: 20,
+              height: 25,
+              width: 25,
             ),
             Image.asset(
               "assets/images/category1.png",
@@ -55,13 +55,13 @@ class _navigationState extends State<navigation> {
             ),
             Image.asset(
               "assets/images/bag.png",
-              height: 20,
-              width: 20,
+              height: 25,
+              width: 25,
             ),
             Image.asset(
               "assets/images/person.png",
-              height: 20,
-              width: 20,
+              height: 25,
+              width: 25,
             ),
           ]),
     );

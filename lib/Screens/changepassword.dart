@@ -79,15 +79,15 @@ class changepass extends StatelessWidget {
                         SizedBox(
                           height: 40,
                         ),
-                        commonContainer("Old Password"),
+                        commonContainer("Old Password",""),
                         SizedBox(
                           height: 16,
                         ),
-                        commonContainer("New Password"),
+                        commonContainer("New Password",""),
                         SizedBox(
                           height: 16,
                         ),
-                        commonContainer("Confirm New Password"),
+                        commonContainer("Confirm New Password",""),
                         SizedBox(height: 50),
                         button("Change Password", signin(), context),
                       ],

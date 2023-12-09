@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
 
-commonContainer(text) {
-  return InkWell(
-    onTap: () {},
-    child: Container(
-      width: 315,
-      height: 45,
-      child: Padding(
-        padding: const EdgeInsets.only(
-          left: 17,
-          top: 13,
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-              color: Color(0xFF787474),
-              fontSize: 15,
-              fontWeight: FontWeight.w400),
-        ),
-      ),
-      decoration: BoxDecoration(
-        color: Color(0x30CCCCCC),
+commonContainer(text, keyboardtype) {
+  return TextField(
+    keyboardType: keyboardtype,
+    decoration: InputDecoration(
+      filled: true,
+      fillColor: Color(0x30CCCCCC),
+      contentPadding: EdgeInsets.only(top: 13, bottom: 13, left: 20),
+      hintText: text,
+      hintStyle: TextStyle(color: Color(0xFF787474)),
+      enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(13),
+        borderSide: BorderSide(color: Color(0x30CCCCCC), width: 1),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(13),
+        borderSide: BorderSide(color: Colors.white, width: 1),
       ),
     ),
   );

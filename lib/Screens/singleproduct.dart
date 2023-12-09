@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rental/Models/productModel.dart';
 import 'package:rental/Screens/bottomsheet.dart';
+import 'package:rental/homeController.dart';
 import 'package:rental/widgets/singleprow.dart';
 
 class singleproduct extends StatelessWidget {
-  const singleproduct({super.key});
+  final Product product;
+  const singleproduct({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +19,15 @@ class singleproduct extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 229,
-                width: 315,
-                child: PageView(
-                  children: [
-                    scontainer("assets/images/women3.png"),
-                    scontainer("assets/images/women.png"),
-                    scontainer("assets/images/girl.png"),
-                  ],
-                ),
-              ),
+                  height: 229,
+                  width: 315,
+                  child: PageView.builder(
+                    itemCount: product.productImage.length,
+                    itemBuilder: (context, index) {
+                      print(product.productImage[index]);
+                      return scontainer(product.productImage[index].file);
+                    },
+                  )),
               SizedBox(
                 height: 12,
               ),
@@ -88,9 +91,8 @@ class singleproduct extends StatelessWidget {
               SizedBox(
                 height: 37,
               ),
+              
               Container(
-                width: 375,
-                height: 479,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     color: Colors.white70),
@@ -100,7 +102,7 @@ class singleproduct extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Lehnga Choli",
+                        "${product.name}",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 19,
@@ -125,7 +127,7 @@ class singleproduct extends StatelessWidget {
                             width: 6,
                           ),
                           Text(
-                            "2000 ",
+                            "${product.price}",
                             style: TextStyle(
                               color: Color(0xFFDF453E),
                               fontSize: 19,
@@ -138,7 +140,7 @@ class singleproduct extends StatelessWidget {
                         height: 14,
                       ),
                       Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+                        "${product.description}",
                         style: TextStyle(
                             fontSize: 14,
                             color: Colors.black,
@@ -183,6 +185,9 @@ class singleproduct extends StatelessWidget {
                             singlep("Sizes       :", "XS, S, Medium, L, XL"),
                           ],
                         ),
+                      ),
+                      SizedBox(
+                        height: 50,
                       )
                     ],
                   ),

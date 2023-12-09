@@ -12,9 +12,9 @@ clothwomen() {
           children: [
             InkWell(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => singleproduct(),
-                ));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //   builder: (context) => singleproduct(product: productImage,),
+                // ));
               },
               child: Container(
                 width: 142,

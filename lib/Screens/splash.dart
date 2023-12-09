@@ -1,19 +1,30 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rental/Screens/navifaton.dart';
 import 'package:rental/Screens/signin.dart';
+import 'package:rental/authController.dart';
+import 'package:rental/loginScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class splash extends StatelessWidget {
   const splash({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds: 3), () {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => signin(),
-      ));
+    Timer(Duration(seconds: 3), () async {
+      final sp = await SharedPreferences.getInstance();
+
+      if (sp.containsKey('login')) {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => navigation(),
+        ));
+      } else {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => signin(),
+        ));
+      }
     });
-   
 
     return SafeArea(
       child: Scaffold(

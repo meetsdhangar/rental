@@ -102,15 +102,19 @@ class editaddresh extends StatelessWidget {
                           SizedBox(
                             height: 33,
                           ),
-                          commonContainer("Patel Sandhya"),
+                          commonContainer(
+                            "Patel Sandhya",
+                            TextInputType.text,
+                          ),
                           SizedBox(
                             height: 16,
                           ),
-                          commonContainer("1234567890"),
+                          commonContainer("1234567890", TextInputType.phone),
                           SizedBox(
                             height: 16,
                           ),
-                          commonContainer("Sandhya123@Gmail.com"),
+                          commonContainer("Sandhya123@Gmail.com",
+                              TextInputType.emailAddress),
                           SizedBox(
                             height: 16,
                           ),

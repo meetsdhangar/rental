@@ -102,15 +102,15 @@ class checkout extends StatelessWidget {
                           SizedBox(
                             height: 33,
                           ),
-                          commonContainer("Name"),
+                          commonContainer("Name", TextInputType.text),
                           SizedBox(
                             height: 16,
                           ),
-                          commonContainer("Phone Number"),
+                          commonContainer("Phone Number", TextInputType.phone),
                           SizedBox(
                             height: 16,
                           ),
-                          commonContainer("Email"),
+                          commonContainer("Email", TextInputType.emailAddress),
                           SizedBox(
                             height: 16,
                           ),

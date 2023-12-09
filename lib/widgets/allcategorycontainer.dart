@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rental/homeController.dart';
 
-allcatcontainer(text, image) {
+allcatcontainer(index) {
+  final HomeController home = Get.put(HomeController())..getCategory();
   return Container(
     height: 114,
     width: 89,
@@ -20,8 +23,9 @@ allcatcontainer(text, image) {
         Padding(
           padding: const EdgeInsets.only(top: 13, left: 20, right: 24),
           child: Container(
-            child: Image.asset(
-              image,
+            child: Image.network(
+              "http://rentalhere.in/public/uploads/" +
+                  home.catagoryList[index].iconImage,
               fit: BoxFit.fill,
             ),
           ),
@@ -30,7 +34,7 @@ allcatcontainer(text, image) {
           height: 10,
         ),
         Text(
-          text,
+          home.catagoryList[index].name,
           style: TextStyle(
             color: Colors.black,
             fontSize: 13,

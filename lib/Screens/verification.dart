@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 import 'package:rental/Screens/commonwidget.dart';
 import 'package:rental/Screens/forgotpass.dart';
+import 'package:rental/Screens/navifaton.dart';
 import 'package:rental/Screens/resetpass.dart';
 import 'package:rental/Screens/signin.dart';
+import 'package:rental/authController.dart';
 
 class verification extends StatelessWidget {
   const verification({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authController controller = Get.put(authController());
+    String otp = '';
     return SafeArea(
       child: Scaffold(
         bottomSheet: Container(
@@ -52,6 +57,12 @@ class verification extends StatelessWidget {
                   height: 50,
                 ),
                 Pinput(
+                  onChanged: (value) {
+                    otp = value;
+                  },
+                  onCompleted: (value) {
+                    otp = value;
+                  },
                   cursor: Container(
                     height: 10,
                     width: 1,
@@ -59,7 +70,7 @@ class verification extends StatelessWidget {
                   ),
                   keyboardType: TextInputType.number,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  length: 4,
+                  length: 6,
                   showCursor: true,
                   defaultPinTheme: PinTheme(
                       height: 50,
@@ -80,7 +91,38 @@ class verification extends StatelessWidget {
                 SizedBox(
                   height: 84,
                 ),
-                button("Verify", resetpass(), context),
+                InkWell(
+                  onTap: () {
+                    try {
+                      controller.verifyOTP(otp);
+                    } catch (e) {
+                      if (otp.length < 6) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("Please Enter 6 Digit OTP")));
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Invalid OTP")));
+                      }
+                    }
+                  },
+                  child: Container(
+                    child: Center(
+                      child: Text(
+                        "Verify",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                    width: 315,
+                    height: 45,
+                    decoration: BoxDecoration(
+                        color: Color(0xFF1B3E41),
+                        borderRadius: BorderRadius.circular(40)),
+                  ),
+                ),
+                // button("Verify", navigation(), context),
               ],
             ),
           ),
@@ -100,9 +142,7 @@ class verification extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 30),
                   child: InkWell(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => forgotpass(),
-                      ));
+                      Get.back();
                     },
                     child: Container(
                       width: 27,

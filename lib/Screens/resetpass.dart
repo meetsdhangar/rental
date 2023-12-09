@@ -94,11 +94,11 @@ class resetpass extends StatelessWidget {
                           SizedBox(
                             height: 34,
                           ),
-                          commonContainer("New Password"),
+                          commonContainer("New Password",""),
                           SizedBox(
                             height: 16,
                           ),
-                          commonContainer("Confirm Password"),
+                          commonContainer("Confirm Password",""),
                           SizedBox(
                             height: 35,
                           ),

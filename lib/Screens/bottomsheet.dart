@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/checkout.dart';
 
-import 'package:rental/Screens/commonwidget.dart';
-import 'package:rental/Screens/home.dart';
-
 Widget bottomsheet(context) {
   return Container(
     width: 390,
@@ -41,7 +38,7 @@ Widget bottomsheet(context) {
                     ));
                   },
                   child: Icon(Icons.close),
-                )
+                ),
               ],
             ),
             SizedBox(

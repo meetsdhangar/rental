@@ -1,26 +1,81 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pinput/pinput.dart';
 import 'package:rental/Screens/navifaton.dart';
 import 'package:rental/Screens/signup.dart';
+import 'package:rental/Screens/verification.dart';
+import 'package:rental/authController.dart';
+import 'package:rental/otpScreen.dart';
 
 import '../Screens/commonwidget.dart';
 import '../Screens/forgotpass.dart';
-import '../Screens/home.dart';
 
 loginView(context) {
+  final authController controller = Get.put(authController());
+  var mobileController = TextEditingController();
   return Column(
     children: [
       SizedBox(
         height: 25,
       ),
-      commonContainer("Email or Phone number"),
-      SizedBox(
-        height: 16,
+      TextField(
+        controller: mobileController,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Color(0x30CCCCCC),
+          contentPadding: EdgeInsets.only(top: 13, bottom: 13, left: 20),
+          hintText: "Enter Phone number",
+          hintStyle: TextStyle(color: Color(0xFF787474)),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(13),
+            borderSide: BorderSide(color: Color(0x30CCCCCC), width: 1),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(13),
+            borderSide: BorderSide(color: Colors.white, width: 1),
+          ),
+        ),
       ),
-      commonContainer("Password"),
-      SizedBox(height: 34),
+      // commonContainer("Email or Phone number"),
+      SizedBox(
+        height: 95,
+      ),
+      // commonContainer("Password"),
+      // SizedBox(height: 34),
+      InkWell(
+        onTap: () {
+          if (mobileController.text == '') {
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("Please Enter mobile no")));
+          }
+          if (mobileController.length < 10) {
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("Please Enter 10 Digit mobile no")));
+          } else {
+            controller.verifyMobileNumber(
+                "+91", mobileController.text, context);
+          }
+        },
+        child: Container(
+          child: Center(
+            child: Text(
+              "Send Otp",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400),
+            ),
+          ),
+          width: 315,
+          height: 45,
+          decoration: BoxDecoration(
+              color: Color(0xFF1B3E41),
+              borderRadius: BorderRadius.circular(40)),
+        ),
+      ),
 
-      
-      button("Sign In", navigation(), context),
+      //button("Send Otp", verification(), context),
       SizedBox(height: 13),
       Padding(
         padding: const EdgeInsets.only(left: 10),
@@ -31,7 +86,7 @@ loginView(context) {
             ));
           },
           child: Text(
-            "Forgot Your Password",
+            "Forgot Your Password ?",
             style: TextStyle(
                 color: Color(0xFFDF453E),
                 fontSize: 14,

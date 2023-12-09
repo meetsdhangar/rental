@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental/AllUrl.dart';
 
 singlep(text, txt) {
   return Row(
@@ -42,7 +43,7 @@ scontainer(image) {
       height: 201,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(image),
+          image: NetworkImage(imageUri + image),
           fit: BoxFit.contain,
         ),
       ),

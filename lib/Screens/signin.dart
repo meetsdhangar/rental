@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:rental/widgets/commonwidget.dart';
 
 class signin extends StatelessWidget {
+  
   const signin({super.key});
 
   @override
   Widget build(BuildContext context) {
+   
     return SafeArea(
       child: DefaultTabController(
         length: 2,
