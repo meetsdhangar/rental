@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental/Screens/changepassword.dart';
 import 'package:rental/Screens/editprofile.dart';
 import 'package:rental/widgets/commonwidget.dart';
 
@@ -118,12 +119,20 @@ class profile extends StatelessWidget {
                                 SizedBox(
                                   width: 10,
                                 ),
-                                Text(
-                                  "Change Password",
-                                  style: TextStyle(
-                                    color: Color(0xFF787474),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) => changepass(),
+                                    ));
+                                  },
+                                  child: Text(
+                                    "Change Password",
+                                    style: TextStyle(
+                                      color: Color(0xFF787474),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -234,7 +243,6 @@ class profile extends StatelessWidget {
                           topRight: Radius.circular(40),
                         ),
                       ),
-                      // borderRadius: BorderRadius.circular(40)),
                     ),
                   ],
                 ),

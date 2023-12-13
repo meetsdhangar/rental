@@ -30,7 +30,7 @@ class allcategory extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Container(
-          height: 256,
+          height: 270,
           child: GridView.builder(
             itemCount: home.catagoryList.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -45,38 +45,6 @@ class allcategory extends StatelessWidget {
           ),
         ),
       ),
-      // body: Column(
-      //   children: [
-      //     Padding(
-      //       padding: const EdgeInsets.only(left: 25, top: 25),
-      //       child: Row(
-      //         mainAxisAlignment: MainAxisAlignment.spaceAround,
-      //         children: [
-      //           allcatcontainer("cloth", "assets/images/cloth.png"),
-      //           allcatcontainer("Electronics", "assets/images/laptop.png"),
-      //           allcatcontainer("Events", "assets/images/events.png")
-      //         ],
-      //       ),
-      //     ),
-      //     Padding(
-      //       padding: const EdgeInsets.only(left: 25, top: 25),
-      //       child: Row(
-      //         mainAxisAlignment: MainAxisAlignment.spaceAround,
-      //         children: [
-      //           allcatcontainer("Appliances", "assets/images/applience.png"),
-      //           allcatcontainer(
-      //             "Vehicle",
-      //             "assets/images/vehicle.png",
-      //           ),
-      //           allcatcontainer(
-      //             "Construction",
-      //             "assets/images/construction.png",
-      //           )
-      //         ],
-      //       ),
-      //     ),
-      //   ],
-      // ),
     ));
   }
 }

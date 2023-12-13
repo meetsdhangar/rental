@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rental/Screens/commonwidget.dart';
+import 'package:rental/Screens/home.dart';
 
-import 'package:rental/Screens/oredrhistory.dart';
-import 'package:rental/Screens/signin.dart';
+import 'package:rental/Screens/profile.dart';
 
 class editprofile extends StatefulWidget {
   const editprofile({super.key});
@@ -52,7 +52,7 @@ class _editprofileState extends State<editprofile> {
                           child: InkWell(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => signin(),
+                                builder: (context) => profile(),
                               ));
                             },
                             child: Container(
@@ -95,78 +95,82 @@ class _editprofileState extends State<editprofile> {
                           topRight: Radius.circular(40),
                         ),
                       ),
-                      child: Column(
-                        children: [
-                          Stack(
-                            children: [
-                              Padding(
-                                  padding: const EdgeInsets.only(top: 34),
-                                  child: img == null
-                                      ? Container(
-                                          width: 130,
-                                          height: 130,
-                                          decoration: ShapeDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  "assets/images/prof1.png"),
-                                              fit: BoxFit.fill,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 30, right: 30),
+                        child: Column(
+                          children: [
+                            Stack(
+                              children: [
+                                Padding(
+                                    padding: const EdgeInsets.only(top: 34),
+                                    child: img == null
+                                        ? Container(
+                                            width: 130,
+                                            height: 130,
+                                            decoration: ShapeDecoration(
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                    "assets/images/prof1.png"),
+                                                fit: BoxFit.fill,
+                                              ),
+                                              shape: OvalBorder(),
                                             ),
-                                            shape: OvalBorder(),
-                                          ),
-                                        )
-                                      : Container(
-                                          width: 130,
-                                          height: 130,
-                                          decoration: ShapeDecoration(
-                                            image: DecorationImage(
-                                              image: FileImage(img!),
-                                              fit: BoxFit.fill,
+                                          )
+                                        : Container(
+                                            width: 130,
+                                            height: 130,
+                                            decoration: ShapeDecoration(
+                                              image: DecorationImage(
+                                                image: FileImage(img!),
+                                                fit: BoxFit.fill,
+                                              ),
+                                              shape: OvalBorder(),
                                             ),
-                                            shape: OvalBorder(),
-                                          ),
-                                        )),
-                              Positioned(
-                                top: 130,
-                                left: 90,
-                                child: InkWell(
-                                  onTap: () {
-                                    selectimage();
-                                  },
-                                  child: Container(
-                                    width: 28,
-                                    height: 28,
-                                    child: Icon(
-                                      Icons.edit,
-                                      size: 18,
-                                      color: Colors.white,
+                                          )),
+                                Positioned(
+                                  top: 130,
+                                  left: 90,
+                                  child: InkWell(
+                                    onTap: () {
+                                      selectimage();
+                                    },
+                                    child: Container(
+                                      width: 28,
+                                      height: 28,
+                                      child: Icon(
+                                        Icons.edit,
+                                        size: 18,
+                                        color: Colors.white,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFF1B3E41),
+                                          borderRadius:
+                                              BorderRadius.circular(50)),
                                     ),
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFF1B3E41),
-                                        borderRadius:
-                                            BorderRadius.circular(50)),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 39,
-                          ),
-                          commonContainer("Patel Sandhya", TextInputType.text),
-                          SizedBox(
-                            height: 16,
-                          ),
-                          commonContainer("1234567890", TextInputType.phone),
-                          SizedBox(
-                            height: 16,
-                          ),
-                          commonContainer("Sandhya123@Gmail.com",
-                              TextInputType.emailAddress),
-                          SizedBox(
-                            height: 51,
-                          ),
-                          button("Save Details", orederhistory(), context)
-                        ],
+                              ],
+                            ),
+                            SizedBox(
+                              height: 39,
+                            ),
+                            commonContainer(
+                                "Patel Sandhya", TextInputType.text),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            commonContainer("1234567890", TextInputType.phone),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            commonContainer("Sandhya123@Gmail.com",
+                                TextInputType.emailAddress),
+                            SizedBox(
+                              height: 51,
+                            ),
+                            button("Save Details", home(), context)
+                          ],
+                        ),
                       ),
 
                       // borderRadius: BorderRadius.circular(40)),

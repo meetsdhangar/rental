@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/Screens/navifaton.dart';
+
+import 'package:rental/Screens/navigation.dart';
 import 'package:rental/Screens/signin.dart';
 import 'package:rental/authController.dart';
 import 'package:rental/loginScreen.dart';

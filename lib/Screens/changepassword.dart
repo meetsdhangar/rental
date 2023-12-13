@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/commonwidget.dart';
-import 'package:rental/Screens/forgotpass.dart';
-import 'package:rental/Screens/signin.dart';
+
+import 'package:rental/Screens/navigation.dart';
+import 'package:rental/Screens/profile.dart';
 
 class changepass extends StatelessWidget {
   const changepass({super.key});
@@ -29,7 +30,7 @@ class changepass extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => signin(),
+                            builder: (context) => profile(),
                           ));
                         },
                         child: Container(
@@ -79,17 +80,18 @@ class changepass extends StatelessWidget {
                         SizedBox(
                           height: 40,
                         ),
-                        commonContainer("Old Password",""),
+                        commonContainer("Old Password", TextInputType.text),
                         SizedBox(
                           height: 16,
                         ),
-                        commonContainer("New Password",""),
+                        commonContainer("New Password", TextInputType.text),
                         SizedBox(
                           height: 16,
                         ),
-                        commonContainer("Confirm New Password",""),
+                        commonContainer(
+                            "Confirm New Password", TextInputType.text),
                         SizedBox(height: 50),
-                        button("Change Password", signin(), context),
+                        button("Change Password", navigation(), context),
                       ],
                     ),
                   ),

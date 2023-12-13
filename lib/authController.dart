@@ -2,7 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rental/Screens/home.dart';
-import 'package:rental/Screens/navifaton.dart';
+
+import 'package:rental/Screens/navigation.dart';
 import 'package:rental/Screens/signin.dart';
 import 'package:rental/Screens/verification.dart';
 import 'package:rental/otpScreen.dart';

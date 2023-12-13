@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 import 'package:rental/Screens/commonwidget.dart';
 import 'package:rental/Screens/forgotpass.dart';
-import 'package:rental/Screens/navifaton.dart';
+
 import 'package:rental/Screens/resetpass.dart';
 import 'package:rental/Screens/signin.dart';
 import 'package:rental/authController.dart';
