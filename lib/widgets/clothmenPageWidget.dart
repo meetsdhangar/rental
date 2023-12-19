@@ -1,158 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rental/homeController.dart';
+import 'package:rental/widgets/homepagewidgets.dart';
 
 clothListContainer() {
-  return ListView.builder(
-    itemCount: 6,
-    scrollDirection: Axis.vertical,
-    itemBuilder: (context, index) {
-      return Padding(
-        padding: const EdgeInsets.only(left: 8, top: 44),
-        child: Row(
-          children: [
-            Container(
-              width: 142,
-              height: 205,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x14000000),
-                      blurRadius: 4,
-                      offset: Offset(0, 2),
-                      spreadRadius: 0,
-                    )
-                  ]),
-              child: Column(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 13, left: 20, right: 24),
-                    child: Container(
-                      width: 110,
-                      height: 102.02,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFF8F8F8),
-                          borderRadius: BorderRadius.circular(3)),
-                      child: Container(
-                        width: 72,
-                        height: 97.21,
-                        child: Image.asset(
-                          "assets/images/men3.png",
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset("assets/images/dollar.png"),
-                      SizedBox(
-                        width: 7.7,
-                      ),
-                      Text(
-                        "340 ",
-                        style: TextStyle(
-                          color: Color(0xFFDF453E),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 3.85,
-                  ),
-                  Text(
-                    "Wedding Dress",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 50,
-            ),
-            Container(
-              width: 142,
-              height: 205,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x14000000),
-                      blurRadius: 4,
-                      offset: Offset(0, 2),
-                      spreadRadius: 0,
-                    )
-                  ]),
-              child: Column(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 13, left: 20, right: 24),
-                    child: Container(
-                      width: 110,
-                      height: 102.02,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFF8F8F8),
-                          borderRadius: BorderRadius.circular(3)),
-                      child: Container(
-                        width: 72,
-                        height: 97.21,
-                        child: Image.asset(
-                          "assets/images/men4.png",
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset("assets/images/dollar.png"),
-                      SizedBox(
-                        width: 7.7,
-                      ),
-                      Text(
-                        "1340 ",
-                        style: TextStyle(
-                          color: Color(0xFFDF453E),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 3.85,
-                  ),
-                  Text(
-                    "kurta",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      );
-    },
+  final HomeController home1 = Get.put(HomeController());
+  return Container(
+    height: 445,
+    child: GridView.builder(
+      padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+      itemCount: home1.productlist.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          mainAxisExtent: 205,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20,
+          crossAxisCount: 2),
+      itemBuilder: (context, index) {
+        print(' index of catalist: ${home1.catlist[index]}');
+        return Homecontainer1(context, home1.catlist[index]
+            //  home1.catawisePrd[index]
+            );
+      },
+    ),
   );
 }

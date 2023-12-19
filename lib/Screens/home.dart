@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rental/AllUrl.dart';
+import 'package:rental/Screens/clothmen.dart';
 import 'package:rental/Screens/signin.dart';
 import 'package:rental/Screens/singleproduct.dart';
 import 'package:rental/homeController.dart';
@@ -112,13 +113,6 @@ class home extends StatelessWidget {
                                     home1.getCategoriwiseProduct(
                                         home1.catagoryList[index].id);
                                     home1.selectedIndex.value = index;
-                                    //home1.update();
-                                    // Navigator.pushAndRemoveUntil(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) => home()),
-                                    //     (route) => false);
-                                    print("updated");
                                   },
                                   child: Container(
                                     height: 114,
@@ -246,12 +240,20 @@ class home extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            Text(
-                              "View All",
-                              style: TextStyle(
-                                color: Color(0xFFDF453E),
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
+                            InkWell(
+                              onTap: () {
+                                home1.getsubcategory(
+                                    home1.Selectedcatagoryid.value);
+
+                                Get.to(() => clothmen(prdlist:home1.catlist ));
+                              },
+                              child: Text(
+                                "View All",
+                                style: TextStyle(
+                                  color: Color(0xFFDF453E),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ],
@@ -260,7 +262,7 @@ class home extends StatelessWidget {
                           height: 20,
                         ),
                         Container(
-                           height: 445,
+                          height: 445,
                           child: GridView.builder(
                             itemCount: 4,
                             physics: NeverScrollableScrollPhysics(),

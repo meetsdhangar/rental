@@ -91,7 +91,6 @@ class singleproduct extends StatelessWidget {
               SizedBox(
                 height: 37,
               ),
-              
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
@@ -201,10 +200,9 @@ class singleproduct extends StatelessWidget {
           height: 64,
           width: MediaQuery.of(context).size.width,
           child: Padding(
-            padding: const EdgeInsets.only(left: 30),
+            padding: const EdgeInsets.only(left: 15),
             child: Container(
               decoration: BoxDecoration(
-                //color: Colors.red,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
                 ),
@@ -212,20 +210,27 @@ class singleproduct extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    width: 182,
                     decoration: BoxDecoration(
-                      color: Color(0xFFDF453E),
-                      borderRadius: BorderRadius.only(
+                        color: Color(0xBFDF453E),
+                        borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(40),
-                          bottomRight: Radius.circular(40)),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Call Now",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
+                        )),
+                    child: Container(
+                      width: 190,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFDF453E),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(40),
+                            bottomRight: Radius.circular(40)),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Call Now",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ),

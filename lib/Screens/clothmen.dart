@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rental/Models/productModel.dart';
+import 'package:rental/homeController.dart';
 import 'package:rental/widgets/clothkidspage.dart';
 import 'package:rental/widgets/clothmenPageWidget.dart';
 import 'package:rental/widgets/clothwomenpage.dart';
 import 'package:rental/widgets/commonwidget.dart';
 
 class clothmen extends StatelessWidget {
-  const clothmen({super.key});
+  final List prdlist;
+  const clothmen({super.key, required this.prdlist});
 
   @override
   Widget build(BuildContext context) {
+    print("cat wise product list $prdlist");
+    final controller = Get.find<HomeController>();
     var theme = Theme.of(context);
     return SafeArea(
         child: DefaultTabController(
-      length: 3,
+      length: controller.subcatList.length,
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -27,89 +33,78 @@ class clothmen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.only(
             top: 20,
-            left: 29,
+            //left: 29,
           ),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 25),
-                child: Container(
-                  decoration: BoxDecoration(
-                    //borderRadius: BorderRadius.circular(20),
-                    color: Colors.white54,
-                  ),
-                  height: 50,
-                  child: Theme(
-                    data: theme.copyWith(
-                      colorScheme: theme.colorScheme.copyWith(
-                        surfaceVariant: Colors.transparent,
-                      ),
+              Container(
+                decoration: BoxDecoration(
+                  //borderRadius: BorderRadius.circular(20),
+                  color: Colors.white54,
+                ),
+                height: 50,
+                child: Theme(
+                  data: theme.copyWith(
+                    colorScheme: theme.colorScheme.copyWith(
+                      surfaceVariant: Colors.transparent,
                     ),
-                    child: TabBar(
-                        overlayColor: MaterialStateProperty.all<Color>(
-                            Colors.transparent),
-                        indicator: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(10)),
-                        indicatorColor: Colors.red,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        labelColor: Colors.white,
-                        unselectedLabelColor: Colors.black,
-                        //indicatorPadding: EdgeInsets.only(left: 10, right: 10),
-                        tabs: [
-                          Container(
-                            height: 50,
+                  ),
+                  child: TabBar(
+                    labelPadding: EdgeInsets.only(left: 10),
+                    tabAlignment: TabAlignment.start,
+                    isScrollable: true,
+                    overlayColor:
+                        MaterialStateProperty.all<Color>(Colors.transparent),
+                    indicator: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(10)),
+                    indicatorColor: Colors.red,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    labelColor: Colors.white,
+                    unselectedLabelColor: Colors.black,
+                    //indicatorPadding: EdgeInsets.only(left: 10, right: 10),
+                    tabs: controller.subcatList
+                        .map(
+                          (sub) => Container(
+                            height: 60,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(
                                   color: Color(0xff787575), width: 1),
                             ),
-                            child: Center(
-                              child: Text(
-                                "Men",
-                                // textAlign: TextAlign.center,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 30, right: 30),
+                              child: Center(
+                                child: Text(
+                                  sub.name,
+                                ),
                               ),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                  color: Color(0xff787575), width: 1),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Women",
-                                // textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                  color: Color(0xff787575), width: 1),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Kids",
-                                // textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        ]),
+                        )
+                        .toList(),
                   ),
                 ),
               ),
+
               Expanded(
-                child: TabBarView(children: [
-                  clothListContainer(), clothwomen(), kidscloth(),
+                child: TabBarView(
+                  children: controller.subcatList
+                      .map((sub) => Container(
+                            child: clothListContainer(),
+                          ))
+                      .toList(),
+
+                  //children: [
+
+                  // , clothwomen(), kidscloth(),
+
                   // mencloth(context),
                   // loginView(context),
                   // mencloth(context),
-                ]),
+                  // ]
+                ),
               ),
               // Expanded(
               //   child: TabBarView(children: [
