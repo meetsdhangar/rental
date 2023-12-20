@@ -15,6 +15,7 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
+  RxInt myindex = 0.obs;
   RxList catagoryList = [].obs;
   RxList productlist = [].obs;
   RxList catlist = [].obs;

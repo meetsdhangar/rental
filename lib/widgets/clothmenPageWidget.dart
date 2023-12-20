@@ -9,7 +9,7 @@ clothListContainer() {
     height: 445,
     child: GridView.builder(
       padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-      itemCount: home1.productlist.length,
+      itemCount: home1.catlist.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           mainAxisExtent: 205,
           crossAxisSpacing: 20,
