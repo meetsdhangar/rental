@@ -79,6 +79,8 @@ class HomeController extends GetxController {
     productlist.clear();
     productlist.addAll(newlist);
 
+
+
     var catid = catagoryList[0].id.toString();
     Selectedcatagoryid.value = catid;
     getCategoriwiseProduct(catid);
@@ -109,10 +111,31 @@ class HomeController extends GetxController {
       List newlist = mydata.map((e) => SubcategoryModel.fromJson(e)).toList();
       subcatList.clear();
       subcatList.addAll(newlist);
+
+
+
+     //first index subcategory data
       print(subcatList);
+      var subid = subcatList[0].id;
+      print('subcategory id : $subid');
+
+      getsubCategoriwiseProduct(subid);
     } else {
       print("error in retrive subcategory");
       print(response.statusCode);
     }
+  }
+
+  RxList scatalist = [].obs;
+  getsubCategoriwiseProduct(final subId) {
+    scatalist.clear();
+
+    for (var i = 0; i < productlist.length; i++) {
+      if (productlist[i].subcategory.toString() == subId.toString()) {
+       scatalist.add(productlist[i]);
+      }
+    }
+
+    update();
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:rental/Models/productModel.dart';
 import 'package:rental/Screens/bottomsheet.dart';
-import 'package:rental/homeController.dart';
+
 import 'package:rental/widgets/singleprow.dart';
 
 class singleproduct extends StatelessWidget {
@@ -11,6 +11,7 @@ class singleproduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('clothdata : ${product.clothdata}');
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFFF8F8F8),
@@ -25,7 +26,9 @@ class singleproduct extends StatelessWidget {
                     itemCount: product.productImage.length,
                     itemBuilder: (context, index) {
                       print(product.productImage[index]);
-                      return scontainer(product.productImage[index].file);
+                      return scontainer(
+                        product.productImage[index].file,
+                      );
                     },
                   )),
               SizedBox(
@@ -143,6 +146,7 @@ class singleproduct extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14,
                             color: Colors.black,
+                            letterSpacing: (0.50),
                             fontWeight: FontWeight.w400),
                       ),
                       SizedBox(
@@ -156,38 +160,46 @@ class singleproduct extends StatelessWidget {
                       SizedBox(
                         height: 19,
                       ),
-                      Text(
-                        "Product Details:",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          height: 0.09,
-                          letterSpacing: 0.90,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 13),
-                        child: Column(
-                          children: [
-                            singlep("Material  :", "Silk"),
-                            SizedBox(
-                              height: 12,
+                      product.clothdata.isEmpty
+                          ? Container()
+                          : Column(
+                              children: [
+                                Text(
+                                  "Product Details:",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    height: 0.09,
+                                    letterSpacing: 0.90,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 13),
+                                  child: Column(
+                                    children: [
+                                      // singlep("Material  :", "Silk"),
+                                      // SizedBox(
+                                      //   height: 12,
+                                      // ),
+                                      singlep("Color       :",
+                                          "${product.clothdata[0].colour}"),
+                                      SizedBox(
+                                        height: 12,
+                                      ),
+                                      singlep("Sizes       :",
+                                          "${product.clothdata[0].size}"),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 50,
+                                )
+                              ],
                             ),
-                            singlep("Color       :", "Brown, Grey, Nude, Red"),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            singlep("Sizes       :", "XS, S, Medium, L, XL"),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 50,
-                      )
                     ],
                   ),
                 ),

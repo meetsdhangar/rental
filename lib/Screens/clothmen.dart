@@ -1,20 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/Models/productModel.dart';
 import 'package:rental/homeController.dart';
-import 'package:rental/widgets/clothkidspage.dart';
 import 'package:rental/widgets/clothmenPageWidget.dart';
-import 'package:rental/widgets/clothwomenpage.dart';
-import 'package:rental/widgets/commonwidget.dart';
 
-class clothmen extends StatelessWidget {
+class clothmen extends StatefulWidget {
   final List prdlist;
   const clothmen({super.key, required this.prdlist});
 
   @override
+  State<clothmen> createState() => _clothmenState();
+}
+
+class _clothmenState extends State<clothmen> with TickerProviderStateMixin {
+  final controller = Get.find<HomeController>();
+  late TabController tabController;
+
+  @override
+  void initState() {
+    tabController =
+        TabController(length: controller.subcatList.length, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    print("cat wise product list $prdlist");
-    final controller = Get.find<HomeController>();
+    print("cat wise product list ${widget.prdlist}");
+
     var theme = Theme.of(context);
     return Obx(
       () => SafeArea(
@@ -54,7 +71,6 @@ class clothmen extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    //borderRadius: BorderRadius.circular(20),
                     color: Colors.white54,
                   ),
                   height: 50,
@@ -65,6 +81,7 @@ class clothmen extends StatelessWidget {
                       ),
                     ),
                     child: TabBar(
+                      controller: tabController,
                       labelPadding: EdgeInsets.only(left: 10),
                       tabAlignment: TabAlignment.start,
                       isScrollable: true,
@@ -80,19 +97,27 @@ class clothmen extends StatelessWidget {
                       //indicatorPadding: EdgeInsets.only(left: 10, right: 10),
                       tabs: controller.subcatList
                           .map(
-                            (sub) => Container(
-                              height: 60,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                    color: Color(0xff787575), width: 1),
-                              ),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 30, right: 30),
-                                child: Center(
-                                  child: Text(
-                                    sub.name,
+                            (sub) => InkWell(
+                              onTap: () {
+                                tabController.animateTo(
+                                    controller.subcatList.indexOf(sub));
+                                controller.getsubCategoriwiseProduct(
+                                    sub.id.toString());
+                              },
+                              child: Container(
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      color: Color(0xff787575), width: 1),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 30, right: 30),
+                                  child: Center(
+                                    child: Text(
+                                      sub.name,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -102,32 +127,16 @@ class clothmen extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Expanded(
                   child: TabBarView(
+                    controller: tabController,
                     children: controller.subcatList
                         .map((sub) => Container(
                               child: clothListContainer(),
                             ))
                         .toList(),
-
-                    //children: [
-
-                    // , clothwomen(), kidscloth(),
-
-                    // mencloth(context),
-                    // loginView(context),
-                    // mencloth(context),
-                    // ]
                   ),
                 ),
-                // Expanded(
-                //   child: TabBarView(children: [
-                //     mencloth(context),
-                //     loginView(context),
-                //     mencloth(context),
-                //   ]),
-                // ),
               ],
             ),
           ),

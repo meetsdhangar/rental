@@ -191,13 +191,7 @@ class _bagitemState extends State<bagitem> {
                       : Container(
                           width: 18,
                           height: 18,
-                          // child: Icon(
-                          //   Icons.done,
-                          //   size: 18,
-                          //   color: Colors.white,
-                          // ),
                           decoration: BoxDecoration(
-                              // color: Color(0xFFDF453E),
                               border: Border.all(),
                               borderRadius: BorderRadius.circular(5)),
                         ),

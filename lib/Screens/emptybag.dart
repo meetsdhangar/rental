@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/commonwidget.dart';
+import 'package:rental/Screens/home.dart';
 
 import 'package:rental/Screens/navigation.dart';
 
@@ -54,7 +55,7 @@ class emptybag extends StatelessWidget {
             SizedBox(
               height: 32,
             ),
-            button("Go To Home", navigation(), context)
+            button("Go To Home", home(), context)
           ],
         ),
       ),
