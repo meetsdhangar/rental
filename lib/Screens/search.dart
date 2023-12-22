@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rental/homeController.dart';
 
 class search extends StatelessWidget {
   const search({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<HomeController>();
     return SafeArea(
         child: Scaffold(
       body: Padding(
@@ -51,33 +54,40 @@ class search extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: 5,
                   itemBuilder: (context, index) {
-                    return Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    return Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: Container(
-                            width: 60,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage("assets/images/kid2.png"),
-                                fit: BoxFit.contain,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 10),
+                              child: Container(
+                                width: 60,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/images/kid2.png"),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                            SizedBox(
+                              width: 13,
+                            ),
+                            Text(
+                              "Kurta & Pyjamas",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          width: 13,
-                        ),
-                        Text(
-                          "Kurta & Pyjamas",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                        Divider(
+                          thickness: 2,
+                        )
                       ],
                     );
                   },

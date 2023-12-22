@@ -1,0 +1,5 @@
+{
+    "debug.allowBreakpointsEverywhere": false,
+    "dart.cliConsole": "debugConsole",
+    "dart.customFlutterDapPath": null
+}

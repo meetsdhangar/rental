@@ -13,12 +13,22 @@ class clothmen extends StatefulWidget {
 
 class _clothmenState extends State<clothmen> with TickerProviderStateMixin {
   final controller = Get.find<HomeController>();
+  int previosindex = 0;
   late TabController tabController;
 
   @override
   void initState() {
     tabController =
         TabController(length: controller.subcatList.length, vsync: this);
+    tabController.addListener(() {
+      if (tabController.index != previosindex) {
+        controller.getsubCategoriwiseProduct(
+            controller.subcatList[tabController.index].id);
+      }
+    });
+    setState(() {
+      previosindex = tabController.index;
+    });
     super.initState();
   }
 
@@ -99,10 +109,13 @@ class _clothmenState extends State<clothmen> with TickerProviderStateMixin {
                           .map(
                             (sub) => InkWell(
                               onTap: () {
+                                controller.isloading.value = true;
                                 tabController.animateTo(
                                     controller.subcatList.indexOf(sub));
+
                                 controller.getsubCategoriwiseProduct(
                                     sub.id.toString());
+                                controller.isloading.value = false;
                               },
                               child: Container(
                                 height: 60,
@@ -128,14 +141,18 @@ class _clothmenState extends State<clothmen> with TickerProviderStateMixin {
                   ),
                 ),
                 Expanded(
-                  child: TabBarView(
-                    controller: tabController,
-                    children: controller.subcatList
-                        .map((sub) => Container(
-                              child: clothListContainer(),
-                            ))
-                        .toList(),
-                  ),
+                  child: controller.isloading.value == true
+                      ? Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : TabBarView(
+                          controller: tabController,
+                          children: controller.subcatList
+                              .map((sub) => Container(
+                                    child: clothListContainer(),
+                                  ))
+                              .toList(),
+                        ),
                 ),
               ],
             ),

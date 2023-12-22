@@ -27,6 +27,10 @@ class HomeController extends GetxController {
   RxInt selectedIndex = 0.obs;
   RxList subcatList = [].obs;
 
+  chnagetab() {
+    myindex.value = 0;
+  }
+
   getCategory() async {
     var response = await http.get(Uri.parse(categoryUrl));
     var decodedDate = jsonDecode(response.body);
@@ -79,8 +83,6 @@ class HomeController extends GetxController {
     productlist.clear();
     productlist.addAll(newlist);
 
-
-
     var catid = catagoryList[0].id.toString();
     Selectedcatagoryid.value = catid;
     getCategoriwiseProduct(catid);
@@ -112,9 +114,7 @@ class HomeController extends GetxController {
       subcatList.clear();
       subcatList.addAll(newlist);
 
-
-
-     //first index subcategory data
+      //first index subcategory data
       print(subcatList);
       var subid = subcatList[0].id;
       print('subcategory id : $subid');
@@ -126,13 +126,14 @@ class HomeController extends GetxController {
     }
   }
 
+  RxBool isloading = false.obs;
   RxList scatalist = [].obs;
   getsubCategoriwiseProduct(final subId) {
     scatalist.clear();
 
     for (var i = 0; i < productlist.length; i++) {
       if (productlist[i].subcategory.toString() == subId.toString()) {
-       scatalist.add(productlist[i]);
+        scatalist.add(productlist[i]);
       }
     }
 

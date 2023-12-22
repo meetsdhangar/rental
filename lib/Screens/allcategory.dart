@@ -21,7 +21,6 @@ class allcategory extends StatelessWidget {
             style: TextStyle(
               color: Color(0xFF1B3E41),
               fontSize: 19,
-              fontFamily: 'Inter',
               fontWeight: FontWeight.w700,
             ),
           ),
