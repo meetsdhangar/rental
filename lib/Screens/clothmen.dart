@@ -20,15 +20,18 @@ class _clothmenState extends State<clothmen> with TickerProviderStateMixin {
   void initState() {
     tabController =
         TabController(length: controller.subcatList.length, vsync: this);
+
     tabController.addListener(() {
+      print("chnage index");
       if (tabController.index != previosindex) {
         controller.getsubCategoriwiseProduct(
             controller.subcatList[tabController.index].id);
+        setState(() {
+          previosindex = tabController.index;
+        });
       }
     });
-    setState(() {
-      previosindex = tabController.index;
-    });
+
     super.initState();
   }
 
@@ -40,8 +43,6 @@ class _clothmenState extends State<clothmen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    print("cat wise product list ${widget.prdlist}");
-
     var theme = Theme.of(context);
     return Obx(
       () => SafeArea(
@@ -75,7 +76,6 @@ class _clothmenState extends State<clothmen> with TickerProviderStateMixin {
           body: Padding(
             padding: const EdgeInsets.only(
               top: 20,
-              //left: 29,
             ),
             child: Column(
               children: [

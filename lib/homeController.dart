@@ -27,8 +27,8 @@ class HomeController extends GetxController {
   RxInt selectedIndex = 0.obs;
   RxList subcatList = [].obs;
 
-  chnagetab() {
-    myindex.value = 0;
+  chnagetab(index) {
+    myindex.value = index;
   }
 
   getCategory() async {
@@ -83,6 +83,8 @@ class HomeController extends GetxController {
     productlist.clear();
     productlist.addAll(newlist);
 
+    //
+
     var catid = catagoryList[0].id.toString();
     Selectedcatagoryid.value = catid;
     getCategoriwiseProduct(catid);
@@ -100,7 +102,7 @@ class HomeController extends GetxController {
     update();
   }
 
-  getsubcategory(catid) async {
+  Future<void> getsubcategory(catid) async {
     var resbody = {'category_id': catid};
 
     var response = await http.post(Uri.parse(subCategoryUrl), body: resbody);

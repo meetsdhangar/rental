@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:rental/Models/productModel.dart';
+
 import 'package:rental/Screens/bottomsheet.dart';
+import 'package:rental/bookingController.dart';
+import 'package:rental/homeController.dart';
 
 import 'package:rental/widgets/singleprow.dart';
 
@@ -11,7 +15,9 @@ class singleproduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('clothdata : ${product.clothdata}');
+    final booking = Get.put(BookingController())..checkItemInCart(product);
+    final home = Get.find<HomeController>();
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFFF8F8F8),
@@ -250,10 +256,16 @@ class singleproduct extends StatelessWidget {
                   Expanded(
                       child: InkWell(
                     onTap: () {
-                      showModalBottomSheet(
-                          backgroundColor: Colors.transparent,
-                          context: context,
-                          builder: (builder) => bottomsheet(context));
+                      if (booking.iscontain == false) {
+                        showModalBottomSheet(
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (builder) =>
+                                bottomsheet(context, product));
+                      } else {
+                        home.chnagetab(3);
+                        //Get.to(() => bagitem());
+                      }
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -263,7 +275,9 @@ class singleproduct extends StatelessWidget {
                           )),
                       child: Center(
                         child: Text(
-                          "Book Now",
+                          booking.iscontain == false
+                              ? "Book Now"
+                              : "Already Booked",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,

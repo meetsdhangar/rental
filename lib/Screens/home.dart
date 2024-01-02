@@ -185,7 +185,7 @@ class home extends StatelessWidget {
                               "View All",
                               style: TextStyle(
                                 color: Color(0xFFDF453E),
-                                fontSize: 15,
+                                fontSize: 15, 
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -242,10 +242,11 @@ class home extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                home1.getsubcategory(
-                                    home1.Selectedcatagoryid.value);
-
-                                Get.to(() => clothmen(prdlist:home1.catlist ));
+                                home1
+                                    .getsubcategory(
+                                        home1.Selectedcatagoryid.value)
+                                    .then((value) => Get.to(() =>
+                                        clothmen(prdlist: home1.catlist)));
                               },
                               child: Text(
                                 "View All",
