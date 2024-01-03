@@ -84,4 +84,10 @@ class BookingController extends GetxController {
       print("empty list");
     }
   }
+
+  deleteprd(myindex) {
+    if (cartList.contains(myindex)) {
+      cartList.remove(myindex);
+    }
+  }
 }

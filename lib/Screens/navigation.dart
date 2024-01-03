@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:rental/Screens/allcategory.dart';
 import 'package:rental/Screens/bagitems.dart';
 
-import 'package:rental/Screens/emptybag.dart';
 
 import 'package:rental/Screens/home.dart';
 import 'package:rental/Screens/profile.dart';

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 
 import 'package:rental/AllUrl.dart';
 import 'package:rental/Screens/commonwidget.dart';
 import 'package:rental/Screens/emptybag.dart';
 import 'package:rental/Screens/finalorder.dart';
-import 'package:rental/Screens/home.dart';
-import 'package:rental/Screens/navigation.dart';
 
 import 'package:rental/bookingController.dart';
 
@@ -65,8 +64,25 @@ class _bagitemState extends State<bagitem> {
                       child: ListView.builder(
                           itemCount: booking.cartList.length,
                           itemBuilder: (context, index) {
-                            return notEmptyBag(
-                                context, booking.cartList[index]);
+                            return Slidable(
+                              direction: Axis.horizontal,
+                              key: Key('${booking.cartList[index]}'),
+                              child:
+                                  notEmptyBag(context, booking.cartList[index]),
+                              endActionPane:
+                                  ActionPane(motion: DrawerMotion(), children: [
+                                SlidableAction(
+                                  onPressed: (m) {
+                                    booking.deleteprd(booking.cartList[index]);
+                                  },
+                                  backgroundColor: Color(0xFF1B3E41),
+                                  //foregroundColor: Color(0xFFF8F8F8),
+                                  icon: Icons.delete,
+                                  // padding: EdgeInsets.all(0),
+                                  //  label: "Delete",
+                                )
+                              ]),
+                            );
                           }),
                     ),
                     booking.selectedCartItemList.length == 0
