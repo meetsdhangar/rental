@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
+import 'package:rental/Models/prdModel.dart';
 import 'package:rental/Models/addtocartlistModel.dart';
-import 'package:rental/Models/productModel.dart';
+
+
 
 class BookingController extends GetxController {
   RxBool obxcheck = false.obs;
@@ -89,5 +91,12 @@ class BookingController extends GetxController {
     if (cartList.contains(myindex)) {
       cartList.remove(myindex);
     }
+  }
+
+  deleteSelectedList() {
+    for (var i = 0; i < selectedCartItemList.length; i++) {
+      cartList.remove(selectedCartItemList[i]);
+    }
+    selectedCartItemList.value = [];
   }
 }

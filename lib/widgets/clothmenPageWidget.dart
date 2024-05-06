@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/homeController.dart';
+import 'package:rental/Controller/homeController.dart';
 import 'package:rental/widgets/homepagewidgets.dart';
 
 clothListContainer() {

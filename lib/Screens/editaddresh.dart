@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rental/Screens/addresh.dart';
 import 'package:rental/Screens/commonwidget.dart';
 import 'package:rental/Screens/finalorder.dart';
-import 'package:rental/Screens/signin.dart';
+import 'package:rental/Screens/login.dart';
 
 class editaddresh extends StatelessWidget {
   const editaddresh({super.key});
@@ -30,7 +30,7 @@ class editaddresh extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => signin(),
+                              builder: (context) => login(),
                             ));
                           },
                           child: Container(

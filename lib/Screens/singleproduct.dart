@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rental/Models/prdModel.dart';
 
-import 'package:rental/Models/productModel.dart';
+
 
 import 'package:rental/Screens/bottomsheet.dart';
-import 'package:rental/bookingController.dart';
-import 'package:rental/homeController.dart';
+import 'package:rental/Controller/bookingController.dart';
+
+import 'package:rental/Controller/homeController.dart';
 
 import 'package:rental/widgets/singleprow.dart';
 
@@ -27,7 +29,7 @@ class singleproduct extends StatelessWidget {
             children: [
               Container(
                   height: 229,
-                  width: 315,
+                  width: MediaQuery.of(context).size.width,
                   child: PageView.builder(
                     itemCount: product.productImage.length,
                     itemBuilder: (context, index) {

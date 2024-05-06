@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/addresh.dart';
 import 'package:rental/Screens/commonwidget.dart';
-import 'package:rental/Screens/forgotpass.dart';
-import 'package:rental/Screens/signin.dart';
+
+import 'package:rental/Screens/login.dart';
 
 class checkout extends StatelessWidget {
   const checkout({super.key});
@@ -30,7 +30,7 @@ class checkout extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => signin(),
+                              builder: (context) => login(),
                             ));
                           },
                           child: Container(

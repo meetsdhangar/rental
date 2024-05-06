@@ -63,6 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '72910334063',
     projectId: 'rentalapp-df651',
     storageBucket: 'rentalapp-df651.appspot.com',
+    androidClientId: '72910334063-7bgr3eghue3v7bb6rss538g7hu12m784.apps.googleusercontent.com',
+    iosClientId: '72910334063-enalnij7iiuhu4114fgqjmpvu177qeeb.apps.googleusercontent.com',
     iosBundleId: 'com.example.rental',
   );
 }

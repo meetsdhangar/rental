@@ -1,11 +1,13 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:rental/AllUrl.dart';
+import 'package:rental/Controller/AllUrl.dart';
 import 'package:http/http.dart' as http;
+import 'package:rental/Models/prdModel.dart';
 import 'package:rental/Models/categoryModel.dart';
-import 'package:rental/Models/productModel.dart';
+
 import 'package:rental/Models/subcategoryModel.dart';
+
 
 class HomeController extends GetxController {
   @override
@@ -33,12 +35,17 @@ class HomeController extends GetxController {
 
   getCategory() async {
     var response = await http.get(Uri.parse(categoryUrl));
-    var decodedDate = jsonDecode(response.body);
-    var mydata = decodedDate["data"]["category"];
+    if (response.statusCode == 200) {
+      var decodedDate = jsonDecode(response.body);
+      var mydata = decodedDate["data"]["category"];
 
-    List newlist = mydata.map((cata) => CategoryModel.fromJson(cata)).toList();
-    catagoryList.clear();
-    catagoryList.addAll(newlist);
+      List newlist =
+          mydata.map((cata) => CategoryModel.fromJson(cata)).toList();
+      catagoryList.clear();
+      catagoryList.addAll(newlist);
+    } else {
+      print(response.statusCode);
+    }
   }
 
   // getproduct() async {
@@ -74,20 +81,24 @@ class HomeController extends GetxController {
 
   getproduct1() async {
     var response = await http.get(Uri.parse(productUrl));
-    var decodedData = jsonDecode(response.body);
+    if (response.statusCode == 200) {
+      var decodedData = jsonDecode(response.body);
 
-    var mydata = decodedData["data"]["product"];
+      var mydata = decodedData["data"]["product"];
 
-    List newlist = mydata.map((prd) => Product.fromJson(prd)).toList();
+      List newlist = mydata.map((prd) => Product.fromJson(prd)).toList();
 
-    productlist.clear();
-    productlist.addAll(newlist);
+      productlist.clear();
+      productlist.addAll(newlist);
 
-    //
+      //
 
-    var catid = catagoryList[0].id.toString();
-    Selectedcatagoryid.value = catid;
-    getCategoriwiseProduct(catid);
+      var catid = catagoryList[0].id.toString();
+      Selectedcatagoryid.value = catid;
+      getCategoriwiseProduct(catid);
+    } else {
+      print(response.statusCode);
+    }
   }
 
   getCategoriwiseProduct(final categoryId) {
@@ -103,6 +114,7 @@ class HomeController extends GetxController {
   }
 
   Future<void> getsubcategory(catid) async {
+    print(catid);
     var resbody = {'category_id': catid};
 
     var response = await http.post(Uri.parse(subCategoryUrl), body: resbody);
@@ -140,5 +152,31 @@ class HomeController extends GetxController {
     }
 
     update();
+  }
+
+  RxList searchList = [].obs;
+
+  RxString searchValue = ''.obs;
+  getsearchData(String searchString) {
+    searchList.clear();
+    var mylist = productlist
+        .where((prd) => prd.name
+                .toString()
+                .toLowerCase()
+                .startsWith(searchString.toLowerCase())
+            //.contains(searchString.toLowerCase())
+
+            )
+        .toList();
+    searchList.addAll(mylist);
+    print(searchList);
+
+    // for (var i = 0; i < productlist.length; i++) {
+    //   searchList.clear();
+    //   if (productlist[i].name.toString().toLowerCase() ==
+    //       searchString.toLowerCase()) {
+    //     searchList.add(productlist[i]);
+    //   }
+    // }
   }
 }

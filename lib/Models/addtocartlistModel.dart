@@ -1,5 +1,8 @@
 import 'dart:convert';
-import 'package:rental/Models/productModel.dart';
+
+import 'package:rental/Models/prdModel.dart';
+
+
 
 Cartmodel cartmodelFromMap(String str) => Cartmodel.fromMap(json.decode(str));
 

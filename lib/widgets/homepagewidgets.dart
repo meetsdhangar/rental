@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/AllUrl.dart';
-import 'package:rental/Models/productModel.dart';
+import 'package:rental/Controller/AllUrl.dart';
+import 'package:rental/Models/prdModel.dart';
+
 
 import 'package:rental/Screens/singleproduct.dart';
-import 'package:rental/homeController.dart';
+
+import 'package:rental/Controller/homeController.dart';
 
 horizontalListView(context, categoryList) {
   final HomeController home = Get.put(HomeController());
@@ -99,11 +101,13 @@ class Homecontainer extends StatelessWidget {
             padding: const EdgeInsets.only(top: 13, left: 20, right: 24),
             child: InkWell(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => singleproduct(
-                    product: product,
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => singleproduct(
+                      product: product,
+                    ),
                   ),
-                ));
+                );
               },
               child: Container(
                 width: 110,

@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:rental/getExample/productmodel.dart';
+import 'package:rental/Models/productmodel.dart';
+
 
 class myController extends GetxController {
   RxList favouratelist = [].obs;

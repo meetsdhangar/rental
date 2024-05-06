@@ -9,8 +9,8 @@ import 'package:rental/Screens/home.dart';
 import 'package:rental/Screens/profile.dart';
 
 import 'package:rental/Screens/search.dart';
-import 'package:rental/bookingController.dart';
-import 'package:rental/homeController.dart';
+import 'package:rental/Controller/bookingController.dart';
+import 'package:rental/Controller/homeController.dart';
 
 class navigation extends StatefulWidget {
   const navigation({super.key});

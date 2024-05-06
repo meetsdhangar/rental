@@ -4,16 +4,16 @@ import 'package:rental/Screens/bagitems.dart';
 import 'package:rental/Screens/home.dart';
 import 'package:rental/Screens/navigation.dart';
 
-import 'package:rental/bookingController.dart';
-import 'package:rental/homeController.dart';
+import 'package:rental/Controller/bookingController.dart';
+import 'package:rental/Controller/homeController.dart';
 
 Widget bottomsheet(context, product) {
   final booking = Get.put(BookingController());
   final homeController = Get.put(HomeController());
   return Obx(
     () => Container(
-      width: 390,
-      height: 650,
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height / 1.5,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -216,8 +216,8 @@ Widget bottomsheet(context, product) {
                     Get.snackbar('error', 'Please select days',
                         backgroundColor: Colors.red);
                   } else {
-                    booking.addToCartList(product);             
-                    homeController.chnagetab(3);            
+                    booking.addToCartList(product);
+                    homeController.chnagetab(3);
                   }
                 },
                 child: Container(

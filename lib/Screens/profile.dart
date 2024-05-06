@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:rental/Screens/changepassword.dart';
 import 'package:rental/Screens/editprofile.dart';
-import 'package:rental/widgets/commonwidget.dart';
+import 'package:rental/Controller/authController.dart';
 
 class profile extends StatelessWidget {
   const profile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final auth = Get.put(authController());
     return SafeArea(
       child: Scaffold(
           body: Stack(
         children: [
           Container(
-            width: 395,
-            height: 810,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               color: Color(0xFF1B3E41),
             ),
@@ -39,8 +41,8 @@ class profile extends StatelessWidget {
                       height: 105,
                     ),
                     Container(
-                      width: 395,
-                      height: 625,
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
                       child: Column(
                         children: [
                           Padding(
@@ -193,45 +195,50 @@ class profile extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          Container(
-                            width: 315,
-                            height: 45,
-                            decoration: BoxDecoration(
-                                color: Color(0x30CCCCCC),
-                                border: Border.all(
-                                  width: 2,
+                          InkWell(
+                            onTap: () {
+                              auth.appLogout();
+                            },
+                            child: Container(
+                              width: 315,
+                              height: 45,
+                              decoration: BoxDecoration(
                                   color: Color(0x30CCCCCC),
-                                ),
-                                borderRadius: BorderRadius.circular(13)),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15),
-                                  child: Icon(
-                                    Icons.logout,
-                                    color: Color(0xFFDF453E),
+                                  border: Border.all(
+                                    width: 2,
+                                    color: Color(0x30CCCCCC),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  "Logout",
-                                  style: TextStyle(
+                                  borderRadius: BorderRadius.circular(13)),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 15),
+                                    child: Icon(
+                                      Icons.logout,
+                                      color: Color(0xFFDF453E),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    "Logout",
+                                    style: TextStyle(
+                                      color: Color(0xFF787474),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 180,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
                                     color: Color(0xFF787474),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 180,
-                                ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Color(0xFF787474),
-                                  size: 17,
-                                )
-                              ],
+                                    size: 17,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ],

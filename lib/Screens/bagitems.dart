@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 
-import 'package:rental/AllUrl.dart';
+import 'package:rental/Controller/AllUrl.dart';
 import 'package:rental/Screens/commonwidget.dart';
 import 'package:rental/Screens/emptybag.dart';
 import 'package:rental/Screens/finalorder.dart';
 
-import 'package:rental/bookingController.dart';
+import 'package:rental/Controller/bookingController.dart';
 
 class bagitem extends StatefulWidget {
   const bagitem({super.key});
@@ -135,7 +135,27 @@ class _bagitemState extends State<bagitem> {
                         SizedBox(
                           height: 45,
                         ),
-                        button("Remove", bagitem(), context)
+                        InkWell(
+                          onTap: () {
+                            booking.deleteSelectedList();
+                          },
+                          child: Container(
+                            child: Center(
+                              child: Text(
+                                "Remove",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                            width: 315,
+                            height: 45,
+                            decoration: BoxDecoration(
+                                color: Color(0xFF1B3E41),
+                                borderRadius: BorderRadius.circular(40)),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -309,7 +329,7 @@ Widget notEmptyBag(context, item) {
                                             BoxDecoration(color: Colors.white),
                                         child: Center(
                                             child: Text(
-                                          "1",
+                                          item.quantity.toString(),
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 13,

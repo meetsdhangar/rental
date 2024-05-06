@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/getExample/mycontroller.dart';
+import 'package:rental/Controller/mycontroller.dart';
 
 class favlist extends StatelessWidget {
   const favlist({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/commonwidget.dart';
-import 'package:rental/Screens/signin.dart';
-import 'package:rental/Screens/signup.dart';
+import 'package:rental/Screens/login.dart';
+
 import 'package:rental/Screens/verification.dart';
 
 class forgotpass extends StatelessWidget {
@@ -12,8 +12,8 @@ class forgotpass extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          width: 395,
-          height: 812,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             color: Color(0xFF1B3E41),
           ),
@@ -28,7 +28,7 @@ class forgotpass extends StatelessWidget {
                     child: InkWell(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => signin(),
+                          builder: (context) => login(),
                         ));
                       },
                       child: Container(

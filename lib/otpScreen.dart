@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
-import 'package:rental/authController.dart';
+import 'package:rental/Controller/authController.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});

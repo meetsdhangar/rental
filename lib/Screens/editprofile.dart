@@ -34,8 +34,8 @@ class _editprofileState extends State<editprofile> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Container(
-            width: 395,
-            height: 810,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               color: Color(0xFF1B3E41),
             ),
@@ -86,7 +86,7 @@ class _editprofileState extends State<editprofile> {
                       height: 105,
                     ),
                     Container(
-                      width: 395,
+                      width: MediaQuery.of(context).size.width,
                       height: 625,
                       decoration: BoxDecoration(
                         color: Colors.white,

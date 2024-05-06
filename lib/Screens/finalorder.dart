@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/commonwidget.dart';
+import 'package:rental/Screens/login.dart';
 import 'package:rental/Screens/profile.dart';
-import 'package:rental/Screens/signin.dart';
 
 class finalorder extends StatelessWidget {
   const finalorder({super.key});
@@ -29,7 +29,7 @@ class finalorder extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => signin(),
+                              builder: (context) => login(),
                             ));
                           },
                           child: Container(

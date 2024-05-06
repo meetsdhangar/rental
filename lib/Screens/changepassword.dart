@@ -12,8 +12,8 @@ class changepass extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       body: Container(
-        width: 395,
-        height: 812,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           color: Color(0xFF1B3E41),
         ),
@@ -63,7 +63,7 @@ class changepass extends StatelessWidget {
                   height: 91,
                 ),
                 Container(
-                  width: 395,
+                  width: MediaQuery.of(context).size.width,
                   height: 625,
                   decoration: BoxDecoration(
                     color: Colors.white,

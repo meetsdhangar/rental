@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Screens/commonwidget.dart';
-import 'package:rental/Screens/signin.dart';
+import 'package:rental/Screens/login.dart';
+
 import 'package:rental/Screens/verification.dart';
 
 class resetpass extends StatelessWidget {
@@ -94,15 +95,15 @@ class resetpass extends StatelessWidget {
                           SizedBox(
                             height: 34,
                           ),
-                          commonContainer("New Password",""),
+                          commonContainer("New Password", ""),
                           SizedBox(
                             height: 16,
                           ),
-                          commonContainer("Confirm Password",""),
+                          commonContainer("Confirm Password", ""),
                           SizedBox(
                             height: 35,
                           ),
-                          button(" Save", signin(), context),
+                          button(" Save", login(), context),
                         ],
                       ),
                     ),

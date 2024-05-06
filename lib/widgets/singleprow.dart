@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rental/AllUrl.dart';
+import 'package:rental/Controller/AllUrl.dart';
 
 singlep(text, txt) {
   return Row(
